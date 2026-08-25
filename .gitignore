@@ -8,12 +8,8 @@ out/
 build/
 dist/
 
-# Environment variables & secrets (CRITICAL - DO NOT PUSH SECRETS)
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# All environment variable & credential files (EXCLUDED FROM GIT)
+.env*
 *.pem
 
 # Flutter & Android build files

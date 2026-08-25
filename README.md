@@ -9,7 +9,7 @@ VictorMedia (`victormedia.net`) is a high-performance digital technology, educat
 - **Web Application (`/web`)**: Next.js 14 App Router, TypeScript, Tailwind CSS, SSR, SEO Metadata, Dynamic Sitemap, robots.txt, AdSense-ready layout, Desktop & Mobile Navigation.
 - **Android Application (`/android_app`)**: Flutter, Dart, Material 3, Google Mobile Ads SDK integration (`AdService`), Banner, Interstitial, and Rewarded ads using official Google Test Ad Units.
 - **Database & RLS (`/supabase`)**: PostgreSQL DDL migration, Row Level Security (RLS) policies, UUIDs, foreign keys, triggers, storage bucket configuration, and seed data.
-- **Developer Utilities**: 15 interactive client-side tools (Word Counter, JSON Formatter, Base64, Password Gen, QR Gen, etc.).
+- **Developer Utilities**: 18 interactive client-side tools (Word Counter, JSON Formatter, Base64, Document Exporter, Favicon Gen, Password Gen, QR Gen, etc.).
 - **AI Suite**: 7 server-backed AI tools (Text Assistant, Summarizer, Grammar, Idea Gen, Study Assistant, Code Explain, Email Gen).
 - **Admin Dashboard (`/admin`)**: Telemetry analytics, article CMS with publishing schedules, quiz builder, category manager, and audit logging.
 - **Ad Security**: Server-Side Verification (`/api/ads/verify-reward`) for AdMob rewarded events with unique `reward_event_id` constraints to prevent replay attacks.
@@ -40,7 +40,6 @@ VictorMedia/
 │   │   ├── screens/ (home, explore, tools, games, quiz, ai, profile)
 │   │   └── main.dart
 │   └── pubspec.yaml
-├── .env.example
 ├── DEPLOYMENT.md
 ├── SECURITY.md
 └── README.md
