@@ -17,7 +17,7 @@ import {
   Lock, 
   Cookie, 
   Sparkles,
-  ChevronRight
+  Globe
 } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -29,6 +29,9 @@ export const metadata: Metadata = {
   description: 'VictorMedia is a premier digital engineering platform featuring technical articles, daily quizzes, HTML5 games, developer tools, and AI assistants.',
   keywords: ['Technology', 'Software Engineering', 'AI Tools', 'Developer Utilities', 'Daily Quizzes', 'HTML5 Games', 'Next.js', 'Flutter'],
   authors: [{ name: 'VictorMedia Engineering Team' }],
+  other: {
+    'google-adsense-account': 'ca-pub-6751037211810646',
+  },
   openGraph: {
     title: 'VictorMedia — Digital Technology & Engineering Portal',
     description: 'Empowering engineers and tech enthusiasts with interactive tools, AI suite, daily quizzes, and technical commentary.',
@@ -52,7 +55,15 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-        {/* Google Analytics & AdSense Script Placeholders */}
+        {/* Google AdSense Direct Auto-Verification Script */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6751037211810646"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+
+        {/* Google Analytics Script Placeholder */}
         {process.env.NEXT_PUBLIC_GA_ID && (
           <>
             <Script
@@ -100,8 +111,25 @@ export default function RootLayout({
               </Link>
             </nav>
 
-            {/* Desktop Account / Action Button */}
+            {/* Global Language Selector & Account */}
             <div className="hidden lg:flex items-center gap-3">
+              <div className="relative group">
+                <button className="px-2.5 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-300 flex items-center gap-1.5 hover:border-blue-500 transition-colors">
+                  <Globe className="w-3.5 h-3.5 text-blue-400" />
+                  <span>EN</span>
+                </button>
+                <div className="absolute right-0 top-full mt-1 hidden group-hover:block glass-panel rounded-xl p-2 border border-slate-800 shadow-xl text-xs space-y-1 min-w-[120px] z-50">
+                  <button className="w-full text-left px-2 py-1 rounded hover:bg-blue-600 hover:text-white text-slate-200">English (US)</button>
+                  <button className="w-full text-left px-2 py-1 rounded hover:bg-blue-600 hover:text-white text-slate-200">Español (ES)</button>
+                  <button className="w-full text-left px-2 py-1 rounded hover:bg-blue-600 hover:text-white text-slate-200">Français (FR)</button>
+                  <button className="w-full text-left px-2 py-1 rounded hover:bg-blue-600 hover:text-white text-slate-200">Deutsch (DE)</button>
+                  <button className="w-full text-left px-2 py-1 rounded hover:bg-blue-600 hover:text-white text-slate-200">Hindi (HI)</button>
+                  <button className="w-full text-left px-2 py-1 rounded hover:bg-blue-600 hover:text-white text-slate-200">中文 (ZH)</button>
+                  <button className="w-full text-left px-2 py-1 rounded hover:bg-blue-600 hover:text-white text-slate-200">日本語 (JA)</button>
+                  <button className="w-full text-left px-2 py-1 rounded hover:bg-blue-600 hover:text-white text-slate-200">العربية (AR)</button>
+                </div>
+              </div>
+
               <Link
                 href="/account"
                 className="px-4 py-2 text-sm font-medium rounded-xl bg-blue-600 hover:bg-blue-500 text-white shadow-md shadow-blue-600/30 transition-all flex items-center gap-2"
@@ -139,7 +167,7 @@ export default function RootLayout({
                   <li><Link href="/articles" className="hover:text-blue-400">Technical Articles</Link></li>
                   <li><Link href="/learning" className="hover:text-blue-400">Learning Tracks</Link></li>
                   <li><Link href="/quizzes" className="hover:text-blue-400">Daily Quizzes</Link></li>
-                  <li><Link href="/tools" className="hover:text-blue-400">15 Free Utilities</Link></li>
+                  <li><Link href="/tools" className="hover:text-blue-400">18 Free Utilities</Link></li>
                 </ul>
               </div>
 
@@ -168,7 +196,7 @@ export default function RootLayout({
 
             <div className="border-t border-slate-800/60 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
               <p>© {new Date().getFullYear()} VictorMedia (`victormedia.net`). All rights reserved.</p>
-              <p className="mt-2 sm:mt-0">Built for legitimate high-value content delivery.</p>
+              <p className="mt-2 sm:mt-0">Built for legitimate high-value content delivery & global multi-language support.</p>
             </div>
           </div>
         </footer>

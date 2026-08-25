@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Copy, Check, RefreshCw, Wrench } from 'lucide-react';
+import { ArrowLeft, Copy, Check, RefreshCw, Wrench, Download } from 'lucide-react';
 
 interface ToolProps {
   params: {
@@ -16,20 +16,11 @@ export default function ToolDetailPage({ params }: ToolProps) {
   const [output, setOutput] = useState('');
   const [copied, setCopied] = useState(false);
 
-  // Tool 7: Password Generator state
+  // Tool State Extras
   const [length, setLength] = useState(16);
   const [includeSymbols, setIncludeSymbols] = useState(true);
-
-  // Tool 9: Unit Converter state
-  const [unitValue, setUnitValue] = useState(1);
-  const [unitType, setUnitType] = useState('kmToMiles');
-
-  // Tool 10: Percentage Calculator
-  const [percNum1, setPercNum1] = useState(20);
-  const [percNum2, setPercNum2] = useState(150);
-
-  // Tool 11: Age Calculator
   const [birthDate, setBirthDate] = useState('1998-05-15');
+  const [regexPattern, setRegexPattern] = useState('\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b');
 
   // Real-time recalculation effect
   useEffect(() => {
@@ -46,6 +37,27 @@ export default function ToolDetailPage({ params }: ToolProps) {
         const noSpaces = input.replace(/\s+/g, '').length;
         const tweets = Math.ceil(total / 280);
         setOutput(`Total Chars: ${total} | Excl. Spaces: ${noSpaces} | Twitter Posts (~280 chars): ${tweets}`);
+        break;
+      }
+      case 'document-exporter': {
+        setOutput(input ? `# VictorMedia Export\n\n${input}` : '');
+        break;
+      }
+      case 'favicon-generator': {
+        if (!input) return setOutput('');
+        const encoded = encodeURIComponent(input);
+        setOutput(`data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">${encoded}</text></svg>`);
+        break;
+      }
+      case 'regex-tester': {
+        if (!input || !regexPattern) return setOutput('');
+        try {
+          const re = new RegExp(regexPattern, 'g');
+          const matches = input.match(re);
+          setOutput(matches ? `Matches Found (${matches.length}):\n` + matches.join('\n') : 'No matches found.');
+        } catch (e: any) {
+          setOutput(`Regex Error: ${e.message}`);
+        }
         break;
       }
       case 'json-formatter': {
@@ -109,12 +121,23 @@ export default function ToolDetailPage({ params }: ToolProps) {
       default:
         break;
     }
-  }, [input, slug]);
+  }, [input, regexPattern, slug]);
 
   const handleCopy = () => {
     navigator.clipboard.writeText(output);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleDownloadFile = () => {
+    if (!output) return;
+    const blob = new Blob([output], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `victormedia_${slug}_export.txt`;
+    link.click();
+    URL.revokeObjectURL(url);
   };
 
   const generatePassword = () => {
@@ -151,11 +174,23 @@ export default function ToolDetailPage({ params }: ToolProps) {
           </div>
           <div>
             <h1 className="text-2xl font-bold text-white capitalize">{slug.replace(/-/g, ' ')}</h1>
-            <p className="text-xs text-slate-400">100% Client-Side Interactive Tool</p>
+            <p className="text-xs text-slate-400">100% Client-Side Utility with Download Support</p>
           </div>
         </div>
 
         {/* CUSTOM CONTROLS BASED ON SLUG */}
+        {slug === 'regex-tester' && (
+          <div className="space-y-2">
+            <label className="text-xs font-semibold text-slate-300">Regex Pattern:</label>
+            <input
+              type="text"
+              value={regexPattern}
+              onChange={(e) => setRegexPattern(e.target.value)}
+              className="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-white text-xs font-mono"
+            />
+          </div>
+        )}
+
         {slug === 'password-generator' ? (
           <div className="space-y-4">
             <div className="flex flex-col sm:flex-row gap-4 items-center">
@@ -213,18 +248,27 @@ export default function ToolDetailPage({ params }: ToolProps) {
           </div>
         )}
 
-        {/* OUTPUT AREA */}
+        {/* OUTPUT AREA & DOWNLOAD ACTION */}
         <div className="space-y-2 pt-4 border-t border-slate-800">
           <div className="flex items-center justify-between">
             <label className="text-xs font-semibold text-slate-300">Output Result:</label>
             {output && (
-              <button
-                onClick={handleCopy}
-                className="inline-flex items-center gap-1.5 text-xs text-blue-400 hover:text-blue-300 font-medium"
-              >
-                {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-                <span>{copied ? 'Copied!' : 'Copy Result'}</span>
-              </button>
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={handleCopy}
+                  className="inline-flex items-center gap-1.5 text-xs text-blue-400 hover:text-blue-300 font-medium"
+                >
+                  {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                  <span>{copied ? 'Copied!' : 'Copy Result'}</span>
+                </button>
+                <button
+                  onClick={handleDownloadFile}
+                  className="inline-flex items-center gap-1.5 text-xs text-green-400 hover:text-green-300 font-semibold px-3 py-1 rounded-lg bg-green-950/40 border border-green-500/30"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  <span>Download File</span>
+                </button>
+              </div>
             )}
           </div>
           <textarea

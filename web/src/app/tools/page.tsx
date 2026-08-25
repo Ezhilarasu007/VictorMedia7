@@ -15,12 +15,16 @@ import {
   Eye, 
   Palette, 
   Clock,
-  Wrench
+  Download,
+  Terminal,
+  Wrench,
+  Image,
+  SearchCode
 } from 'lucide-react';
 
 export const metadata = {
   title: 'Free Developer & Productivity Tools | VictorMedia',
-  description: '15 free client-side tools including Word Counter, JSON Formatter, Base64 Converter, Password Generator, QR Code Generator, and Unit Converter.',
+  description: '18 free client-side tools including Word Counter, JSON Formatter, Base64 Converter, Document Exporter, Favicon Generator, Password Generator, QR Code Generator, and Unit Converter.',
 };
 
 export default function ToolsIndexPage() {
@@ -33,6 +37,9 @@ export default function ToolsIndexPage() {
     { slug: 'url-encoder', name: 'URL Encoder/Decoder', desc: 'Escape special characters for query parameters.', icon: LinkIcon, cat: 'Developer' },
     { slug: 'password-generator', name: 'Password Generator', desc: 'Generate strong cryptographically random passwords.', icon: ShieldCheck, cat: 'Security' },
     { slug: 'qr-generator', name: 'QR Code Generator', desc: 'Create high-resolution QR codes for links & text.', icon: QrCode, cat: 'Utility' },
+    { slug: 'document-exporter', name: 'Document & File Exporter', desc: 'Format notes and download as .txt or .md files instantly.', icon: Download, cat: 'Utility' },
+    { slug: 'favicon-generator', name: 'Data URI & Favicon Gen', desc: 'Convert SVG/text into downloadable Data URI & Favicon format.', icon: Image, cat: 'Design' },
+    { slug: 'regex-tester', name: 'Regex Tester & Evaluator', desc: 'Test regular expressions against target strings live.', icon: SearchCode, cat: 'Developer' },
     { slug: 'unit-converter', name: 'Unit Converter', desc: 'Convert measurements between metric and imperial.', icon: Calculator, cat: 'Math' },
     { slug: 'percentage-calculator', name: 'Percentage Calculator', desc: 'Calculate percentage changes and discounts.', icon: Percent, cat: 'Math' },
     { slug: 'age-calculator', name: 'Age Calculator', desc: 'Calculate exact age in years, days, and leap years.', icon: Calendar, cat: 'Utility' },
@@ -47,11 +54,11 @@ export default function ToolsIndexPage() {
       <div className="space-y-3">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-semibold">
           <Wrench className="w-3.5 h-3.5" />
-          <span>100% Free & Privacy-First</span>
+          <span>100% Free, Privacy-First & Download-Ready</span>
         </div>
-        <h1 className="text-3xl font-extrabold text-white">VictorMedia Free Online Tools</h1>
+        <h1 className="text-3xl font-extrabold text-white">VictorMedia Free Online Tools Suite</h1>
         <p className="text-slate-400 text-sm max-w-2xl">
-          Fast, client-side utility suite designed for developers, writers, and engineers. No registration required. Works completely offline in your browser.
+          18 fast, client-side tools designed for developers, writers, and engineers. No registration required. Download files and export results directly.
         </p>
       </div>
 

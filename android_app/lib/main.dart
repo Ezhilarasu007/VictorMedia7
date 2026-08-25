@@ -11,11 +11,11 @@ import 'screens/profile_screen.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize Supabase Flutter SDK
+  // Initialize Supabase Flutter SDK with real VictorMedia project URL & Anon Key
   try {
     await Supabase.initialize(
-      url: 'https://placeholder.supabase.co',
-      anonKey: 'placeholder-anon-key',
+      url: 'https://oymdfzwugtgkphlcahgp.supabase.co',
+      anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im95bWRmend1Z3Rna3BobGNhaGdwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc2MjgwNTgsImV4cCI6MjEwMzIwNDA1OH0._Wm98QUoi-QLzKWBoizPUW2DXc1SrgUILyRMJjqxWew',
     );
   } catch (e) {
     debugPrint('Supabase Init Note: $e');
