@@ -14,8 +14,14 @@ import {
   Shield,
   Binary,
   Code,
-  Terminal
+  Terminal,
+  Heart,
+  QrCode,
+  Send,
+  Download,
+  SearchCode
 } from 'lucide-react';
+import DonationModal from '@/components/DonationModal';
 
 export default function HomePage() {
   const toolsList = [
@@ -24,22 +30,22 @@ export default function HomePage() {
     { title: 'JSON Formatter', desc: 'Beautify JSON structures.', href: '/tools/json-formatter', icon: Code, cat: 'Developer' },
     { title: 'JSON Validator', desc: 'Find syntax errors instantly.', href: '/tools/json-validator', icon: CheckCircle, cat: 'Developer' },
     { title: 'Base64 Tool', desc: 'Encode & decode UTF-8 text.', href: '/tools/base64-tool', icon: Binary, cat: 'Developer' },
-    { title: 'URL Encoder', desc: 'Safe query parameters.', href: '/tools/url-encoder', icon: Terminal, cat: 'Developer' },
-    { title: 'Password Gen', desc: 'Secure custom passwords.', href: '/tools/password-generator', icon: Shield, cat: 'Security' },
-    { title: 'Markdown Preview', desc: 'Live HTML preview.', href: '/tools/markdown-previewer', icon: BookOpen, cat: 'Text' }
+    { title: 'Document Exporter', desc: 'Export notes to .txt & .md', href: '/tools/document-exporter', icon: Download, cat: 'Utility' },
+    { title: 'Regex Evaluator', desc: 'Test regex pattern matches live.', href: '/tools/regex-tester', icon: SearchCode, cat: 'Developer' },
+    { title: 'Password Gen', desc: 'Secure custom passwords.', href: '/tools/password-generator', icon: Shield, cat: 'Security' }
   ];
 
   return (
     <div className="space-y-16">
-      {/* HERO SECTION */}
-      <section className="relative rounded-3xl p-8 md:p-14 overflow-hidden border border-slate-800/80 bg-gradient-to-br from-slate-900 via-[#0e1629] to-slate-950">
+      {/* HERO SECTION WITH CLAYMORPHISM */}
+      <section className="relative clay-panel p-8 md:p-14 overflow-hidden border border-slate-800/80 bg-gradient-to-br from-slate-900 via-[#0e1629] to-slate-950">
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none"></div>
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-purple-600/15 rounded-full blur-3xl pointer-events-none"></div>
 
         <div className="relative z-10 max-w-3xl space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Next-Gen Platform for Tech & Engineering</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold clay-badge text-blue-400">
+            <Sparkles className="w-3.5 h-3.5 text-blue-400" />
+            <span>Next-Gen Claymorphic Engineering Platform</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
@@ -53,14 +59,14 @@ export default function HomePage() {
           <div className="flex flex-wrap gap-4 pt-2">
             <Link
               href="/news"
-              className="px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-medium shadow-lg shadow-blue-600/25 flex items-center gap-2 transition-all"
+              className="clay-button px-6 py-3.5 text-white font-bold text-sm shadow-lg flex items-center gap-2 transition-all"
             >
               <span>Explore Tech News</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="/ai"
-              className="px-6 py-3.5 rounded-xl glass-card hover:bg-purple-950/40 text-purple-300 font-medium flex items-center gap-2 transition-all border-purple-500/30"
+              className="clay-card px-6 py-3.5 hover:bg-purple-950/40 text-purple-300 font-bold text-sm flex items-center gap-2 transition-all border-purple-500/30"
             >
               <Sparkles className="w-4 h-4 text-purple-400" />
               <span>Try AI Tools</span>
@@ -83,7 +89,7 @@ export default function HomePage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <article className="glass-card rounded-2xl p-6 flex flex-col justify-between group">
+          <article className="clay-card p-6 flex flex-col justify-between group">
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <span className="px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-400 text-xs font-semibold">Web Development</span>
@@ -106,7 +112,7 @@ export default function HomePage() {
             </div>
           </article>
 
-          <article className="glass-card rounded-2xl p-6 flex flex-col justify-between group">
+          <article className="clay-card p-6 flex flex-col justify-between group">
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <span className="px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-400 text-xs font-semibold">Artificial Intelligence</span>
@@ -136,9 +142,26 @@ export default function HomePage() {
         <span>Advertisement Placeholder — Google AdSense Approved Placement</span>
       </div>
 
+      {/* SUPPORT & DONATE CARD (UPI REAL MONEY RECEPTION) */}
+      <section className="clay-panel p-8 border border-emerald-500/30 bg-gradient-to-r from-emerald-950/40 via-slate-900 to-teal-950/40 flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="space-y-3 max-w-xl">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold">
+            <Heart className="w-3.5 h-3.5 fill-emerald-300 animate-bounce" />
+            <span>Direct Community Support</span>
+          </div>
+          <h3 className="text-3xl font-extrabold text-white">Support VictorMedia Engineering</h3>
+          <p className="text-slate-300 text-sm leading-relaxed">
+            Send real money contributions directly via UPI (<span className="font-mono text-emerald-400 font-bold">arasu9629hf@okhdfcbank</span>). Send ₹100, ₹500, ₹1000 or custom amounts instantly.
+          </p>
+        </div>
+        <div className="flex items-center gap-4">
+          <DonationModal />
+        </div>
+      </section>
+
       {/* DAILY QUIZ & LEARNING SECTION */}
       <section className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 glass-panel rounded-2xl p-6 sm:p-8 space-y-6">
+        <div className="lg:col-span-2 clay-panel p-6 sm:p-8 space-y-6">
           <div className="flex items-center justify-between border-b border-slate-800 pb-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center">
@@ -180,7 +203,7 @@ export default function HomePage() {
         </div>
 
         {/* LEARNING TRACK HIGHLIGHT */}
-        <div className="glass-panel rounded-2xl p-6 space-y-5 flex flex-col justify-between">
+        <div className="clay-panel p-6 space-y-5 flex flex-col justify-between">
           <div className="space-y-4">
             <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center">
               <BookOpen className="w-5 h-5" />
@@ -201,10 +224,10 @@ export default function HomePage() {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Wrench className="w-5 h-5 text-blue-400" />
-            <h2 className="text-2xl font-bold text-white tracking-tight">Free Developer Tools</h2>
+            <h2 className="text-2xl font-bold text-white tracking-tight">Free Developer Tools (18 Utilities)</h2>
           </div>
           <Link href="/tools" className="text-sm font-semibold text-blue-400 hover:text-blue-300 flex items-center gap-1">
-            <span>Explore all 15 tools</span>
+            <span>Explore all 18 tools</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
@@ -213,7 +236,7 @@ export default function HomePage() {
           {toolsList.map((tool, idx) => {
             const Icon = tool.icon;
             return (
-              <Link key={idx} href={tool.href} className="glass-card rounded-2xl p-5 space-y-3 block group">
+              <Link key={idx} href={tool.href} className="clay-card p-5 space-y-3 block group">
                 <div className="flex items-center justify-between">
                   <div className="w-9 h-9 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors">
                     <Icon className="w-4 h-4" />
@@ -244,7 +267,7 @@ export default function HomePage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Link href="/games/cyber-runner-2099" className="glass-card rounded-2xl overflow-hidden group block">
+          <Link href="/games/cyber-runner-2099" className="clay-card overflow-hidden group block">
             <div className="h-48 bg-gradient-to-r from-blue-900 to-indigo-900 relative flex items-center justify-center">
               <span className="text-2xl font-extrabold text-white tracking-widest uppercase opacity-80 group-hover:scale-110 transition-transform">Cyber Runner 2099</span>
             </div>
@@ -258,7 +281,7 @@ export default function HomePage() {
             </div>
           </Link>
 
-          <Link href="/games/quantum-sudoku" className="glass-card rounded-2xl overflow-hidden group block">
+          <Link href="/games/quantum-sudoku" className="clay-card overflow-hidden group block">
             <div className="h-48 bg-gradient-to-r from-purple-900 to-slate-900 relative flex items-center justify-center">
               <span className="text-2xl font-extrabold text-white tracking-widest uppercase opacity-80 group-hover:scale-110 transition-transform">Quantum Sudoku</span>
             </div>
@@ -275,7 +298,7 @@ export default function HomePage() {
       </section>
 
       {/* AI ASSISTANT BANNER */}
-      <section className="glass-panel rounded-3xl p-8 md:p-12 border border-purple-500/30 bg-gradient-to-r from-purple-950/40 via-slate-900 to-indigo-950/40 flex flex-col md:flex-row items-center justify-between gap-8">
+      <section className="clay-panel p-8 md:p-12 border border-purple-500/30 bg-gradient-to-r from-purple-950/40 via-slate-900 to-indigo-950/40 flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="space-y-4 max-w-xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 text-xs font-semibold">
             <Sparkles className="w-3.5 h-3.5" />
@@ -288,29 +311,10 @@ export default function HomePage() {
         </div>
         <Link
           href="/ai"
-          className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold shadow-lg shadow-purple-600/30 whitespace-nowrap transition-all"
+          className="clay-button px-6 py-3.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold text-sm shadow-lg shadow-purple-600/30 whitespace-nowrap transition-all"
         >
           Open AI Assistant Hub
         </Link>
-      </section>
-
-      {/* NEWSLETTER SIGNUP */}
-      <section className="glass-panel rounded-3xl p-8 max-w-4xl mx-auto text-center space-y-6 border border-slate-800">
-        <h3 className="text-2xl font-bold text-white">Subscribe to VictorMedia Engineering Insights</h3>
-        <p className="text-slate-400 text-sm max-w-xl mx-auto">
-          Get weekly curated engineering breakdowns, daily quiz announcements, and tech release notes delivered to your inbox.
-        </p>
-        <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
-          <input
-            type="email"
-            placeholder="Enter your email address"
-            className="flex-1 px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-blue-500"
-            required
-          />
-          <button type="submit" className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-all">
-            Subscribe
-          </button>
-        </form>
       </section>
     </div>
   );

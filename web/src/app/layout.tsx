@@ -19,6 +19,7 @@ import {
   Sparkles,
   Globe
 } from 'lucide-react';
+import DonationModal from '@/components/DonationModal';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://victormedia.net'),
@@ -111,8 +112,12 @@ export default function RootLayout({
               </Link>
             </nav>
 
-            {/* Global Language Selector & Account */}
+            {/* Donation, Language & Account */}
             <div className="hidden lg:flex items-center gap-3">
+              {/* TOP DONATE BUTTON */}
+              <DonationModal />
+
+              {/* Multi-Language Dropdown */}
               <div className="relative group">
                 <button className="px-2.5 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-300 flex items-center gap-1.5 hover:border-blue-500 transition-colors">
                   <Globe className="w-3.5 h-3.5 text-blue-400" />
