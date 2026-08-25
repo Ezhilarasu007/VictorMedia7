@@ -24,7 +24,7 @@ export default function DonationModal() {
       {/* HEADER DONATE TRIGGER BUTTON */}
       <button
         onClick={() => setIsOpen(true)}
-        className="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-emerald-600 via-teal-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white font-bold text-xs shadow-lg shadow-emerald-600/30 flex items-center gap-1.5 transition-all transform hover:scale-105"
+        className="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-emerald-600 via-teal-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white font-semibold text-xs shadow-md flex items-center gap-1.5 transition-all transform hover:scale-105"
       >
         <Heart className="w-3.5 h-3.5 fill-white animate-pulse" />
         <span>Donate ₹{amount}</span>
@@ -33,7 +33,7 @@ export default function DonationModal() {
       {/* DONATION MODAL OVERLAY */}
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn">
-          <div className="clay-panel w-full max-w-lg p-6 sm:p-8 space-y-6 relative border border-emerald-500/30">
+          <div className="glass-panel rounded-3xl w-full max-w-lg p-6 sm:p-8 space-y-6 relative border border-emerald-500/30">
             {/* CLOSE BUTTON */}
             <button
               onClick={() => setIsOpen(false)}
@@ -43,7 +43,7 @@ export default function DonationModal() {
             </button>
 
             <div className="space-y-2 text-center">
-              <div className="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto shadow-inner">
+              <div className="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">
                 <Heart className="w-6 h-6 fill-emerald-400" />
               </div>
               <h2 className="text-2xl font-extrabold text-white">Support VictorMedia</h2>
@@ -60,9 +60,9 @@ export default function DonationModal() {
                   <button
                     key={preset}
                     onClick={() => setAmount(preset)}
-                    className={`py-2 rounded-xl text-xs font-extrabold transition-all ${
+                    className={`py-2 rounded-xl text-xs font-bold transition-all ${
                       amount === preset
-                        ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/40 scale-105'
+                        ? 'bg-emerald-600 text-white shadow-md'
                         : 'bg-slate-900/80 text-slate-300 hover:bg-slate-800'
                     }`}
                   >
@@ -112,7 +112,7 @@ export default function DonationModal() {
             {/* ONE TAP PAY BUTTON */}
             <a
               href={upiPayLink}
-              className="clay-button w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/30 transition-all text-center"
+              className="w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg transition-all text-center"
             >
               <Send className="w-4 h-4" />
               <span>Tap to Pay ₹{amount || '100'} via UPI</span>

@@ -37,15 +37,15 @@ export default function HomePage() {
 
   return (
     <div className="space-y-16">
-      {/* HERO SECTION WITH CLAYMORPHISM */}
-      <section className="relative clay-panel p-8 md:p-14 overflow-hidden border border-slate-800/80 bg-gradient-to-br from-slate-900 via-[#0e1629] to-slate-950">
+      {/* HERO SECTION */}
+      <section className="relative rounded-3xl p-8 md:p-14 overflow-hidden border border-slate-800/80 bg-gradient-to-br from-slate-900 via-[#0e1629] to-slate-950 shadow-2xl">
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none"></div>
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-purple-600/15 rounded-full blur-3xl pointer-events-none"></div>
 
         <div className="relative z-10 max-w-3xl space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold clay-badge text-blue-400">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">
             <Sparkles className="w-3.5 h-3.5 text-blue-400" />
-            <span>Next-Gen Claymorphic Engineering Platform</span>
+            <span>Next-Gen Digital Technology Platform</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
@@ -59,14 +59,14 @@ export default function HomePage() {
           <div className="flex flex-wrap gap-4 pt-2">
             <Link
               href="/news"
-              className="clay-button px-6 py-3.5 text-white font-bold text-sm shadow-lg flex items-center gap-2 transition-all"
+              className="premium-button px-6 py-3.5 text-white font-semibold text-sm flex items-center gap-2"
             >
               <span>Explore Tech News</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="/ai"
-              className="clay-card px-6 py-3.5 hover:bg-purple-950/40 text-purple-300 font-bold text-sm flex items-center gap-2 transition-all border-purple-500/30"
+              className="glass-card px-6 py-3.5 hover:bg-purple-950/40 text-purple-300 font-semibold text-sm flex items-center gap-2 border-purple-500/30"
             >
               <Sparkles className="w-4 h-4 text-purple-400" />
               <span>Try AI Tools</span>
@@ -89,7 +89,7 @@ export default function HomePage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <article className="clay-card p-6 flex flex-col justify-between group">
+          <article className="glass-card p-6 flex flex-col justify-between group">
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <span className="px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-400 text-xs font-semibold">Web Development</span>
@@ -112,7 +112,7 @@ export default function HomePage() {
             </div>
           </article>
 
-          <article className="clay-card p-6 flex flex-col justify-between group">
+          <article className="glass-card p-6 flex flex-col justify-between group">
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <span className="px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-400 text-xs font-semibold">Artificial Intelligence</span>
@@ -142,11 +142,11 @@ export default function HomePage() {
         <span>Advertisement Placeholder — Google AdSense Approved Placement</span>
       </div>
 
-      {/* SUPPORT & DONATE CARD (UPI REAL MONEY RECEPTION) */}
-      <section className="clay-panel p-8 border border-emerald-500/30 bg-gradient-to-r from-emerald-950/40 via-slate-900 to-teal-950/40 flex flex-col md:flex-row items-center justify-between gap-8">
+      {/* SUPPORT & DONATE CARD */}
+      <section className="glass-panel rounded-3xl p-8 border border-emerald-500/30 bg-gradient-to-r from-emerald-950/40 via-slate-900 to-teal-950/40 flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="space-y-3 max-w-xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold">
-            <Heart className="w-3.5 h-3.5 fill-emerald-300 animate-bounce" />
+            <Heart className="w-3.5 h-3.5 fill-emerald-300 animate-pulse" />
             <span>Direct Community Support</span>
           </div>
           <h3 className="text-3xl font-extrabold text-white">Support VictorMedia Engineering</h3>
@@ -161,7 +161,7 @@ export default function HomePage() {
 
       {/* DAILY QUIZ & LEARNING SECTION */}
       <section className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 clay-panel p-6 sm:p-8 space-y-6">
+        <div className="lg:col-span-2 glass-panel rounded-3xl p-6 sm:p-8 space-y-6">
           <div className="flex items-center justify-between border-b border-slate-800 pb-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center">
@@ -203,7 +203,7 @@ export default function HomePage() {
         </div>
 
         {/* LEARNING TRACK HIGHLIGHT */}
-        <div className="clay-panel p-6 space-y-5 flex flex-col justify-between">
+        <div className="glass-panel rounded-3xl p-6 space-y-5 flex flex-col justify-between">
           <div className="space-y-4">
             <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center">
               <BookOpen className="w-5 h-5" />
@@ -236,7 +236,7 @@ export default function HomePage() {
           {toolsList.map((tool, idx) => {
             const Icon = tool.icon;
             return (
-              <Link key={idx} href={tool.href} className="clay-card p-5 space-y-3 block group">
+              <Link key={idx} href={tool.href} className="glass-card p-5 space-y-3 block group">
                 <div className="flex items-center justify-between">
                   <div className="w-9 h-9 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors">
                     <Icon className="w-4 h-4" />
@@ -267,7 +267,7 @@ export default function HomePage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Link href="/games/cyber-runner-2099" className="clay-card overflow-hidden group block">
+          <Link href="/games/cyber-runner-2099" className="glass-card overflow-hidden group block">
             <div className="h-48 bg-gradient-to-r from-blue-900 to-indigo-900 relative flex items-center justify-center">
               <span className="text-2xl font-extrabold text-white tracking-widest uppercase opacity-80 group-hover:scale-110 transition-transform">Cyber Runner 2099</span>
             </div>
@@ -281,7 +281,7 @@ export default function HomePage() {
             </div>
           </Link>
 
-          <Link href="/games/quantum-sudoku" className="clay-card overflow-hidden group block">
+          <Link href="/games/quantum-sudoku" className="glass-card overflow-hidden group block">
             <div className="h-48 bg-gradient-to-r from-purple-900 to-slate-900 relative flex items-center justify-center">
               <span className="text-2xl font-extrabold text-white tracking-widest uppercase opacity-80 group-hover:scale-110 transition-transform">Quantum Sudoku</span>
             </div>
@@ -298,7 +298,7 @@ export default function HomePage() {
       </section>
 
       {/* AI ASSISTANT BANNER */}
-      <section className="clay-panel p-8 md:p-12 border border-purple-500/30 bg-gradient-to-r from-purple-950/40 via-slate-900 to-indigo-950/40 flex flex-col md:flex-row items-center justify-between gap-8">
+      <section className="glass-panel rounded-3xl p-8 md:p-12 border border-purple-500/30 bg-gradient-to-r from-purple-950/40 via-slate-900 to-indigo-950/40 flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="space-y-4 max-w-xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 text-xs font-semibold">
             <Sparkles className="w-3.5 h-3.5" />
@@ -311,7 +311,7 @@ export default function HomePage() {
         </div>
         <Link
           href="/ai"
-          className="clay-button px-6 py-3.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold text-sm shadow-lg shadow-purple-600/30 whitespace-nowrap transition-all"
+          className="premium-button px-6 py-3.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-sm whitespace-nowrap"
         >
           Open AI Assistant Hub
         </Link>
